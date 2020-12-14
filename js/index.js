@@ -98,7 +98,7 @@ const settings = async () => {
 
     // User rewards
     const _rewards = await checkRewards();
-    user_rewards.textContent = `${Number(_rewards).toFixed(2)} Enol`;
+    user_rewards.textContent = `${Number(fromWei(_rewards)).toFixed(2)} Enol`;
 
     // calculate current USD balance
     let _currentUSDBalance = await getCurrentPrice('ethanol');
