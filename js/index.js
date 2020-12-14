@@ -27,9 +27,9 @@ let user;
 const toWei = _amount => web3.utils.toWei(_amount.toString(), 'ether');
 const fromWei = _amount => web3.utils.fromWei(_amount.toString(), 'ether');
 
-window.addEventListener('DOMContentLoaded', async () => {
-  await connectDAPP();
-})
+// window.addEventListener('DOMContentLoaded', async () => {
+//   await connectDAPP();
+// })
 
 const loadWeb3 = async () => {
     if(window.ethereum) {
@@ -205,7 +205,7 @@ const renderLatestTransactions = async () => {
         );
 
         let tempItems = result.map(item => {
-            const gasUsed = web3.utils.fromWei(item.gasPrice, 'gwei')
+            const gasUsed = Number(web3.utils.fromWei(item.gasPrice, 'gwei')).toFixed(2);
             return (
                 `<div class="trans_d_m">
                     <span class="trans_d1"><a href="https://etherscan.io/tx/${item.hash}" target="_blank">0x*****${shortener(item.hash, true)}</a></span>
